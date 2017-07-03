@@ -169,7 +169,7 @@ DEPENDENCIES
   pg
   rails (= 4.2.5)
   rails_12factor
-  sass-rails (~> 5.0)
+  sass-rails
   sdoc (~> 0.4.0)
   spring
   sqlite3
@@ -179,4 +179,4 @@ DEPENDENCIES
   will_paginate (= 3.0.7)
 
 BUNDLED WITH
-   1.15.0
+   1.15.1
