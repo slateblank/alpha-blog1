@@ -1,7 +1,9 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.navbar-default-bg: #000000;
+.navbar-default {
+    background-color: #000;
+}
 
 
 #logo {
