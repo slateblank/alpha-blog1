@@ -1,7 +1,15 @@
 require 'test_helper'
 
 class CreateCategoriesTest < ActionDispatch::IntegrationTest
+    
+    def setup
+        @user = User.create(username: "john", email: "john@example.com", password: "password", admin: true) #add admin user to make sure can't access create categories
+    end
+    
+    
+    
     test "get new category form and create category" do
+        sign_in_as(@user, "password")        #create method tests have access toadmin user login - method defined in test_helper.rb
         get new_category_path
         assert_template 'categories/new'
         assert_difference 'Category.count', 1 do
@@ -12,6 +20,7 @@ class CreateCategoriesTest < ActionDispatch::IntegrationTest
     end
     
     test "invalid category submission resuts in failure" do
+        sign_in_as(@user, "password")    
         get new_category_path
         assert_template 'categories/new'
         assert_no_difference 'Category.count' do
